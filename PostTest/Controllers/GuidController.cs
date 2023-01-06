@@ -25,7 +25,7 @@ namespace PostTest.Controllers
                 return BadRequest("startLetter doesnt start with valid hex value");
 
             var guid = Guid.NewGuid();
-            while (!guid.ToString().StartsWith(startLetter))
+            while (!guid.ToString().StartsWith(startLetter.ToLower()))
             {
                 guid = Guid.NewGuid();
             }

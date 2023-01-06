@@ -18,8 +18,10 @@ namespace PostTest.Controllers
         {
             _logger.Log(LogLevel.Information, student.ToString());
 
-            if (student is null || string.IsNullOrEmpty(student.FirstName) || string.IsNullOrEmpty(student.LastName))
+            if (student is null || string.IsNullOrWhiteSpace(student.FirstName) || string.IsNullOrWhiteSpace(student.LastName))
                 return BadRequest();
+
+            // DO Database magic
 
             return StatusCode(201, student);
         }
